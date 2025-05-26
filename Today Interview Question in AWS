@@ -39,4 +39,47 @@ CloudWatch → "Observability, Dashboards"
 Types of Load Balanser:
 Answer: Gateway Load Balancer (GWLB) , Network Load Balancer (NLB) , Application Load Balancer (ALB) , Elastic
 
+Differnce between docker & kuberenets
+
+What is Docker?
+
+Docker is a containerization platform that allows developers to package applications and their dependencies into portable containers.
+
+It simplifies app deployment on a single host by isolating environments.
+
+What is Kubernetes?
+
+Kubernetes is a container orchestration system designed to deploy, manage, and scale containerized applications across multiple hosts or clusters.
+
+It handles scheduling, load balancing, scaling, and self-healing of containers.
+
+Primary Difference:
+
+Docker creates and runs containers.
+
+Kubernetes manages and orchestrates containers at scale.
+
+Scope:
+
+Docker works on a single machine (or small clusters with Docker Swarm).
+
+Kubernetes works across a cluster of machines (nodes) providing fault tolerance and high availability.
+
+Scaling and Load Balancing:
+
+Docker requires manual intervention or Docker Swarm for scaling.
+
+Kubernetes provides automated scaling and built-in load balancing.
+
+Networking:
+
+Docker supports basic container networking on the host.
+
+Kubernetes offers advanced networking, service discovery, and communication between pods across nodes.
+
+Use Case:
+
+Use Docker to containerize an app.
+
+Use Kubernetes when you need to deploy and manage containers in production at scale.
 
