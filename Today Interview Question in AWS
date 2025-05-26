@@ -1,0 +1,42 @@
+Differnce between SQS & SNS 
+ANSWER :2. Message Delivery
+Feature	      SQS	                                    SNS
+Message Persistence	Yes (retained until processed)	No (lost if no subscriber)
+Delivery Guarantee	At-Least-Once (may have duplicates)	At-Least-Once
+Ordering (FIFO)	Supported (FIFO Queues)	Supported (FIFO Topics)
+Retry Mechanism	Yes (Visibility Timeout)	No (depends on subscriber)
+
+. Use Cases
+SQS Use Cases:
+
+Decoupling microservices.
+
+Asynchronous task processing (e.g., order processing).
+
+Buffering requests to prevent system overload.
+
+SNS Use Cases:
+
+Real-time notifications (e.g., email alerts, SMS).
+
+Event-driven architectures (fanout to Lambda, SQS, etc.).
+
+Broadcasting system events (e.g., CloudWatch alarms)
+
+Difference Between Cloud Trail & Cloud Watch
+Answer:
+ Data Types (Technical Depth)
+CloudTrail	                         CloudWatch
+📜 API Call Logs (JSON)	📊 Metrics (CPU, Network, Custom)
+🔍 Management + Data Events	📝 Logs (App/OS logs via CloudWatch Logs)
+⏱ Event History (90 days free)	⚡ Real-time Streaming (Logs/Metrics)
+Keyword Alert:
+
+CloudTrail → "Governance, Non-repudiation"
+
+CloudWatch → "Observability, Dashboards"
+
+Types of Load Balanser:
+Answer: Gateway Load Balancer (GWLB) , Network Load Balancer (NLB) , Application Load Balancer (ALB) , Elastic
+
+
