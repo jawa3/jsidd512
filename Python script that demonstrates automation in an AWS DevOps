@@ -1,0 +1,99 @@
+Create an EC2 instance.
+
+Tag the instance.
+
+Create and attach an EBS volume.
+
+Use logging.
+
+Follows infrastructure-as-code principles in script form.
+
+
+
+
+
+
+import boto3
+import logging
+from botocore.exceptions import ClientError
+
+# Setup logging
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+# AWS clients
+ec2 = boto3.client('ec2', region_name='us-east-1')
+
+def create_ec2_instance():
+    try:
+        logging.info("Launching EC2 instance...")
+        response = ec2.run_instances(
+            ImageId='ami-0c55b159cbfafe1f0',  # Update with a valid AMI ID
+            InstanceType='t2.micro',
+            KeyName='your-key-pair',  # Update with your key pair
+            MinCount=1,
+            MaxCount=1,
+            TagSpecifications=[
+                {
+                    'ResourceType': 'instance',
+                    'Tags': [
+                        {'Key': 'Name', 'Value': 'DevOps-Auto-Instance'},
+                        {'Key': 'Environment', 'Value': 'DevOps-Demo'}
+                    ]
+                }
+            ]
+        )
+        instance_id = response['Instances'][0]['InstanceId']
+        logging.info(f"Instance {instance_id} launched.")
+        return instance_id
+    except ClientError as e:
+        logging.error(e)
+        return None
+
+def create_and_attach_volume(instance_id, availability_zone):
+    try:
+        logging.info("Creating EBS volume...")
+        volume = ec2.create_volume(
+            Size=8,  # 8 GiB
+            AvailabilityZone=availability_zone,
+            VolumeType='gp2',
+            TagSpecifications=[
+                {
+                    'ResourceType': 'volume',
+                    'Tags': [{'Key': 'Name', 'Value': 'DevOps-Auto-Volume'}]
+                }
+            ]
+        )
+        volume_id = volume['VolumeId']
+        logging.info(f"Volume {volume_id} created.")
+
+        # Wait for volume to become available
+        ec2.get_waiter('volume_available').wait(VolumeIds=[volume_id])
+
+        logging.info(f"Attaching volume {volume_id} to instance {instance_id}...")
+        ec2.attach_volume(
+            VolumeId=volume_id,
+            InstanceId=instance_id,
+            Device='/dev/sdf'
+        )
+        logging.info("Volume attached.")
+    except ClientError as e:
+        logging.error(e)
+
+def get_instance_az(instance_id):
+    try:
+        reservations = ec2.describe_instances(InstanceIds=[instance_id])['Reservations']
+        az = reservations[0]['Instances'][0]['Placement']['AvailabilityZone']
+        return az
+    except ClientError as e:
+        logging.error(e)
+        return None
+
+def main():
+    instance_id = create_ec2_instance()
+    if instance_id:
+        az = get_instance_az(instance_id)
+        if az:
+            create_and_attach_volume(instance_id, az)
+
+if __name__ == "__main__":
+    main()
