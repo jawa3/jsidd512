@@ -82,4 +82,15 @@ Use Case:
 Use Docker to containerize an app.
 
 Use Kubernetes when you need to deploy and manage containers in production at scale.
+Differnece between local exec & remote exec in terraform 
+Answer:
 
+"local-exec and remote-exec are Terraform provisioners used to run commands after a resource is created.
+
+local-exec runs on the machine where Terraform is executed—commonly used for local scripts, notifications, or triggering other tools.
+
+remote-exec runs on the target resource itself, like an EC2 instance, using SSH or WinRM—commonly used to install packages or configure the server.
+
+The main difference is where the command is executed: local vs remote, and remote-exec requires proper SSH configuration.
+
+That said, provisioners should be used sparingly in production. It's better to use user_data, cloud-init, or config management tools like Ansible when possible."
