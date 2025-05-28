@@ -1,0 +1,120 @@
+If you're preparing for a Kubernetes interview, here are the **key terms and tools** that interviewers often expect you to know, categorized by topic:  
+
+---
+
+### **1. Core Kubernetes Concepts (Must Know)**
+- **Pods** – Smallest deployable units in Kubernetes.  
+- **Deployments** – Manage stateless apps, enable rolling updates.  
+- **Services** (ClusterIP, NodePort, LoadBalancer) – Expose apps internally/externally.  
+- **ConfigMaps & Secrets** – Manage configuration and sensitive data.  
+- **Namespaces** – Logical isolation for resources.  
+- **ReplicaSets** – Ensure desired pod count is running.  
+- **StatefulSets** – For stateful applications (e.g., databases).  
+- **DaemonSets** – Run a pod on every node (e.g., logging agents).  
+- **Jobs & CronJobs** – Run batch/scheduled tasks.  
+
+**Interview Question:** *"What’s the difference between a Deployment and a StatefulSet?"*  
+
+---
+
+### **2. Cluster Management & Setup**
+- **kubectl** – CLI for interacting with Kubernetes.  
+- **kubeadm** – Tool for bootstrapping clusters.  
+- **Minikube / Kind** – Local Kubernetes clusters for testing.  
+- **kops** – Production-grade cluster setup (AWS).  
+- **Helm** – Package manager for Kubernetes (charts).  
+- **Kustomize** – Declarative configuration management.  
+
+**Interview Question:** *"How would you set up a high-availability (HA) Kubernetes cluster?"*  
+
+---
+
+### **3. Networking**
+- **CNI (Container Network Interface)** – Plugins like Calico, Cilium, Flannel.  
+- **Ingress Controller** (Nginx, Traefik, Istio) – Manages external access.  
+- **Service Mesh** (Istio, Linkerd) – Advanced traffic management, mTLS.  
+- **CoreDNS** – Internal DNS for service discovery.  
+
+**Interview Question:** *"How does Kubernetes handle service discovery?"*  
+
+---
+
+### **4. Storage**
+- **PersistentVolumes (PV) & PersistentVolumeClaims (PVC)** – Dynamic storage provisioning.  
+- **StorageClass** – Defines storage types (SSD, HDD, cloud volumes).  
+- **CSI (Container Storage Interface)** – Standard for storage plugins.  
+- **Rook (Ceph), Longhorn** – Popular storage solutions.  
+
+**Interview Question:** *"How would you deploy a stateful application like MySQL in Kubernetes?"*  
+
+---
+
+### **5. Security (Hot Topic!)**
+- **RBAC (Role-Based Access Control)** – Manage user/role permissions.  
+- **Network Policies** – Control pod-to-pod traffic (e.g., Calico).  
+- **Pod Security Policies (PSP) / Pod Security Admission (PSA)** – Restrict pod privileges.  
+- **OPA Gatekeeper / Kyverno** – Policy enforcement.  
+- **Falco** – Runtime security monitoring.  
+
+**Interview Question:** *"How do you secure a Kubernetes cluster?"*  
+
+---
+
+### **6. Monitoring & Logging**
+- **Prometheus + Grafana** – Monitoring & dashboards.  
+- **EFK Stack (Elasticsearch, Fluentd, Kibana)** – Logging.  
+- **OpenTelemetry** – Observability (metrics, logs, traces).  
+- **cAdvisor / Metrics Server** – Resource monitoring.  
+
+**Interview Question:** *"How would you debug a crashing pod?"*  
+
+---
+
+### **7. CI/CD & GitOps**
+- **Argo CD / Flux CD** – GitOps tools for declarative deployments.  
+- **Tekton** – Kubernetes-native CI/CD pipelines.  
+- **Jenkins X** – Cloud-native Jenkins for Kubernetes.  
+
+**Interview Question:** *"How does GitOps work with Kubernetes?"*  
+
+---
+
+### **8. Scaling & Performance**
+- **HPA (Horizontal Pod Autoscaler)** – Scale pods based on CPU/memory.  
+- **VPA (Vertical Pod Autoscaler)** – Adjust pod resource limits.  
+- **Cluster Autoscaler** – Automatically add/remove nodes.  
+- **KEDA** – Event-driven autoscaling (e.g., Kafka, RabbitMQ).  
+
+**Interview Question:** *"How does Kubernetes handle autoscaling?"*  
+
+---
+
+### **9. Troubleshooting Commands (Hands-On)**
+- `kubectl get pods -n <namespace>`  
+- `kubectl describe pod <pod-name>`  
+- `kubectl logs <pod-name>`  
+- `kubectl exec -it <pod-name> -- sh`  
+- `kubectl top pod/node`  
+- `kubectl port-forward <pod> <local-port>:<pod-port>`  
+
+**Interview Question:** *"A pod is in 'CrashLoopBackOff'—how do you debug it?"*  
+
+---
+
+### **10. Advanced Topics (For Senior Roles)**
+- **Custom Resource Definitions (CRDs)** – Extend Kubernetes API.  
+- **Operators** – Automate app management (e.g., etcd, Prometheus Operator).  
+- **Multi-Cluster Management** (Kubefed, Anthos, EKS Anywhere).  
+- **Serverless on Kubernetes** (Knative).  
+
+**Interview Question:** *"What is a Kubernetes Operator, and when would you use one?"*  
+
+---
+
+### **Final Tips for Interview**  
+✅ **Know kubectl commands** (logs, describe, exec, port-forward).  
+✅ **Understand YAML structure** (Deployments, Services, Ingress).  
+✅ **Be ready for scenario-based questions** (e.g., debugging, scaling).  
+✅ **Mention real-world tools** (Helm, Argo CD, Prometheus).  
+
+Would you like a mock interview question to test your knowledge? 🚀
