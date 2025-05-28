@@ -24,6 +24,14 @@ chmod 755 (Numeric: 7=rwx, 5=rx).
 
 chmod u=rwx,g=rx,o=r (Symbolic).
 
+basic difference between dynamo db & rds:
+Answer
+"RDS is a SQL-based relational database ideal for structured data and complex queries, while 
+DynamoDB is a NoSQL, schema-less database designed for 
+fast, scalable, and flexible key-value access."
+
+Difference between elb & autoscaling groups
+
 best security of docker containers best practices
 
 1. Image Security (Must-Know)
