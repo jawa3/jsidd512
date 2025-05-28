@@ -30,6 +30,14 @@ Answer
 DynamoDB is a NoSQL, schema-less database designed for 
 fast, scalable, and flexible key-value access."
 
+How to integrate eks in kubernetes:
+"To integrate Kubernetes into DevOps, we use CI/CD tools like Jenkins/Argo CD for automated deployments with Helm/Kustomize. 
+We follow GitOps principles, storing manifests in Git and syncing via Flux/Argo CD. 
+For IaC, we use Terraform to provision clusters. HPA and Cluster Autoscaler ensure scalability, while Prometheus/Grafana provide monitoring.
+Security is enforced via RBAC, OPA, and Vault. 
+For microservices, a Service Mesh (Istio/Linkerd) helps manage traffic. 
+Finally, Kubernetes Operators automate complex app deployments."
+
 Difference between elb & autoscaling groups
 
 best security of docker containers best practices
