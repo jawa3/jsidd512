@@ -24,6 +24,11 @@ sudo systemctl status jenkins
 sudo ufw allow 8080
 sudo ufw enable
 
+ Key Interview Keywords
+Category	Keywords to Mention
+Kubernetes	Pods, ServiceAccount, RoleBinding, Namespace, Secrets, RBAC, kubeconfig
+Jenkins	Kubernetes Plugin, Cloud Configuration, Pod Template, JNLP Agent, Pipeline-as-Code
+CI/CD	Dynamic Scaling, Ephemeral Agents, Declarative Pipeline, Resource Optimization
 
 
 
