@@ -30,6 +30,21 @@ Kubernetes	Pods, ServiceAccount, RoleBinding, Namespace, Secrets, RBAC, kubeconf
 Jenkins	Kubernetes Plugin, Cloud Configuration, Pod Template, JNLP Agent, Pipeline-as-Code
 CI/CD	Dynamic Scaling, Ephemeral Agents, Declarative Pipeline, Resource Optimization
 
+"In this slide, I’ve outlined the steps involved in integrating Jenkins with Kubernetes. To make it easier to follow, I’ve arranged all the steps in sequential order.
+
+Step 1 is to install Jenkins on a Windows machine, along with the necessary dependency, which is JDK 11.
+
+Step 2 is installing the Kubernetes plugin in Jenkins.
+
+Step 3 involves creating a Kubernetes namespace, service account, token, and setting up the required role binding.
+
+Step 4 is where we configure the Kubernetes plugin in Jenkins and apply the token we created earlier.
+
+Step 5 is to test the connection between Jenkins and Kubernetes to ensure communication is working properly.
+
+Step 6 is to create a Jenkins pipeline job that will utilize Kubernetes for dynamic agent provisioning.
+
+Finally, Step 7 is to run the Jenkins job and monitor the dynamic agent running inside the Kubernetes cluster.
 
 
 
